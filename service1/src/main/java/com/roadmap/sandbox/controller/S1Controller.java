@@ -15,12 +15,6 @@ public class S1Controller {
 
     @GetMapping
     public String getService2Resource() {
-        try {
-            System.out.println(".zzZZ");
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        return service.getService2Resource();
+        return service.getService2ResourceWithCoolnessLevel();
     }
 }

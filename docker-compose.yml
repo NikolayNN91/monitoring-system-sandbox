@@ -2,7 +2,6 @@ services:
   prometheus:
     image: prom/prometheus
     container_name: prometheus
-#    network_mode: host
     ports:
       - 9090:9090
     volumes:
@@ -14,18 +13,17 @@ services:
   grafana:
     image: grafana/grafana-oss
     container_name: grafana
-#    network_mode: host
+    volumes:
+      - ./grafana_db:/var/lib/grafana
     ports:
       - 3000:3000
   service1:
     build: ./service1
     container_name: service1
-#    network_mode: host
     ports:
     - 8080:8080
   service2:
     build: ./service2
     container_name: service2
-#    network_mode: host
     ports:
       - 8081:8081
