@@ -3,12 +3,18 @@ package com.roadmap.sandbox.service;
 import com.roadmap.sandbox.client.S1Client;
 import io.micrometer.core.annotation.Timed;
 import io.micrometer.core.instrument.MeterRegistry;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.cloud.sleuth.annotation.NewSpan;
+import org.springframework.cloud.sleuth.annotation.SpanTag;
 import org.springframework.stereotype.Service;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Service
 public class S1Service {
+
+    private static final Logger LOG = LoggerFactory.getLogger(S1Service.class);
 
     private final S1Client client;
     private final AtomicInteger coolnessLevel;
